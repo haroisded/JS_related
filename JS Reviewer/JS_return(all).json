@@ -1,0 +1,27 @@
+- - - ( Return ( All Syntax) ) - - -
+
+return 42; // Number
+return "Hello"; // String
+return true; // Boolean
+return false; // Boolean
+return null; // Null
+return undefined; // Undefined
+return; // Also returns undefined
+return 9007199254740991n; // BigInt
+return Symbol("id"); // Symbol
+
+return { name: "Alice", age: 25 }; // Object
+return [1, 2, 3]; // Array
+
+return function(){ console.log("Hi"); }; // Anonymous function
+return sayHi; // Function reference
+
+return Math.max(3, 10); // Result of another function (Expression)
+return 5 + 3 * 2; // Arithmetic expression
+return score > 50 ? "Pass" : "Fail"; // Ternary expression
+return isLoggedIn && userData; // Logical expression
+return `Hello, ${user}`; // Template literal (String expression)
+
+return class MyClass { }; // Class expression
+return Promise.resolve("Done"); // Promise
+return await fetch("/data"); // Awaited async result (in async functions)

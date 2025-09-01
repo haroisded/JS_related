@@ -1,0 +1,168 @@
+- - - ( Node.JS ) - - -
+
+
+** ( Introduction ):
+
+- What is Node.js and how does it work? 
+- Installation, setup, package.json, npm, etc
+- Modules import/export (CommonJS & ES Modules)
+- HTTP Module, req/res, routing, serving JSON/HTML 
+- Custom middleware
+- Other Core Modules - fs, path, url, events, process, os
+
+
+
+** ( What is Node.js and how does it work? ):
+
+* ( V8 JS engine ):
+
+- Node JS is built on top of the V8 JS engine 
+ ( the same engine that powers Google Chrome )
+
+ the V8 JS engine is written in C++ & it takes 
+ your JS Code -> converts -> machine code 
+
+ Node uses the engine, extends it to work in the server side 
+
+
+* ( Non - Blocking ):
+
+- Node JS is non blocking, meaning it doesn't wait for I/O operations 
+ ( e.g.. Network Calls, File System Operations, Database Operations )
+
+ instead of blocking the execution of code, Node JS uses events & callbacks,
+ that allows to handle multiple connections at the same time 
+
+
+* ( Single Threaded ):
+
+- Node JS only has a single main thread that executes your JS code
+
+ Thread, is a set of instructions your computer executes
+
+ in a single thread environment, there's only one set of instructions,
+ that are executed at a time 
+
+ This differs from multi-threaded environments, where you have multiple threads,
+ that can execute different parts of your code simultaneously 
+
+
+* ( Event Loop ):
+
+- Node JS uses the event loop, that allows node to 
+  perform none blocking or asynchronous I/O operations 
+
+( Example ):
+ 
+• Make Network requests
+• Node.JS doesn't wait for the network request 
+  process to complete 
+
+• Rests of the code goes on ( uninterrupted by the 1st request )
+• If request is complete, it triggers the "callback",
+  which is now then added to the Event Queue
+• Event Loop picks up the "callback", then executes it 
+
+   
+* ( What is Node.js and used for? ):
+
+- ( Building API's, e.g.. ):
+• RESTFUL api's
+• graphql api's
+
+- ( Server rendered apps, e.g.. ):
+• can serve JSON data  
+• can serve HTML pages
+• use different template engines ( e.g.. ejs, mustache )
+
+- ( Real - time applications, e.g.. ):
+• Chat
+• Realtime Games 
+• Collaboration Tools 
+
+- ( Microservices ):
+• Small Independent Services, that work together 
+
+- ( CLI / Command Line Tools ): 
+• Command Line Interfaces 
+
+- ( Bots, e.g.. ):
+• Twitter Bot
+• Slack Bot
+• Discord Bot 
+
+- ( Web Servers, e.g.. ):
+• sophisticated web server handling
+• complex routing 
+• serving dynamic content 
+• simple static file server 
+
+- ( Web Scraping )
+
+
+* ( What is Node.JS not great for? ):
+
+• CPU - intensive tasks operations 
+
+
+
+** ( Installation, setup, package.json, npm, etc.. ):
+
+* ( Installation ):
+
+- Node comes with a REPL / Read, Eval, Print & Loop,
+  a command line environtment to run Javascript or Type  
+
+- Note: Just Search NVM github for the installation part 
+
+- Note: NPM & others is explained in a separate file ( NPM&CheatSheet.json )
+
+
+
+** ( Modules import/export (CommonJS & ES Modules) ):
+
+- allows import & export variables or functions in & from different files 
+
+- Note: for non local modules, " ./ " should not be used  
+
+
+
+( Example of CommonJS syntax ):
+
+• Export:
+
+module.exports = { SayHello, SayMessage };
+
+
+• Import:
+
+const { SayHello, SayMessage } = require('./try1');
+
+
+
+( Example of ES Modules syntax ):
+
+- you can use default on a function, that allows the importer
+  to name the function exported / imported function
+  ( but only one default per file is only allowed )
+
+- before using this syntax, in the package.json file,
+  you must add ( if not present ) a type property which will show 2 values 
+  commonjs & module ( if present, just change the type value )
+
+
+• Export:
+
+export { SayHello, SayMessage };
+
+or default version: 
+export default SayHello;
+
+
+• Import:
+
+import { SayHello, SayMessage } from './try1.js';
+
+or default version:
+import Greet from './try1.js';
+

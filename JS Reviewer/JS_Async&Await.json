@@ -1,0 +1,76 @@
+- - - ( Async & Await ) - - -
+
+- is just a syntactical sugar used to make promises easier to work with 
+
+- by using "async" in a function, JS will know how to handle the "await" used inside it 
+
+- by using "await", other operations will wait for the code that uses it to be finished before they start
+
+
+
+** ( Bloated Sample Code using Promises ):
+
+function makeReq(location){
+    
+return new Promise( 
+( resolve, reject ) => {
+ console.log(`Making Request to ${location}`);
+ if(location === 'Google'){ resolve('success'); }
+ else{ reject('failed'); }
+ }    
+);
+
+}
+
+
+function processReq(response){
+ 
+ return new Promise(
+( resolve ) => {
+console.log('Processing request'); 
+resolve(`Extra Info ${response}`)
+ }
+);
+    
+}
+
+
+makeReq('facebook').then( (status) => { 
+    
+console.log('Response Received');
+return processReq(status);
+
+})
+.then( (response) => { console.log(response); } )
+.catch( (status) => { console.log(status); } );
+
+/* 
+
+if resolved: 
+• console.log(...) of the returned promise ( makeReq() ), then return resolve
+• console.log(...) of ".then", then return promise
+• console.log(...) of the returned promise ( processReq(status) ), then return resolve
+• console.log(...) of ".then"
+
+if rejected: 
+• console.log(...) of the returned promise ( makeReq() ), then return reject
+• console.log of ".catch"
+*/ 
+
+
+** ( Sample Code using Async & Await ):
+
+/* Same Code ( Except the invoking part ) */ 
+
+async function doWork(){
+
+ try{
+ let a = await makeReq('facebook'); //Output: Console.log(...), then return resolve
+ console.log('Response Received');
+ let b = await processReq(a); // Use the return resolved stored in "a" as argument, Output: Console.log(...), then return resolve
+ console.log(b);  // Use the return resolved stored in "b" as argument and Output it 
+ } catch( err ){ console.log(err); } // Catches & Outputs the reject value
+    
+}
+
+doWork(); // Invoke the Async 

@@ -1,0 +1,326 @@
+- - - ( NPM / Node Package Manager ) - - -
+
+
+*** ( What is NPM ):
+
+- a main package manager for Node JS & is a huge 
+  repository of open source software ( mostly )
+
+- NPM makes writing code easier, because it 
+  lets you use pre-built code instead of making 
+  your own
+
+• Authors will write code for their package 
+• Publish it on the NPM registry
+• Then you can install that package in your 
+  own computer w/ the CLI
+
+
+
+*** ( NPM Package Installation ):
+
+- there are 2 ways of installing packages,
+  Locally & Globally 
+
+• Installing a package locally will only be 
+  accessible ( & stored ) on the folder where it was installed
+{ Command }: "npm install <package>" 
+  
+• Globally is self explanatory, it can be 
+  accessed no matter what directory 
+{ Command }: "npm install -g <package>" 
+
+
+
+*** ( Package.json ):
+
+- The package json file, store info
+  about your projects 
+
+- They can be helpful in tracking the packages 
+  you've installed in your project 
+
+- Package.json files are usually created first 
+  before downloading any packages 
+
+- It can also be useful for project cloning & get all 
+  the packages that the project ( that will be cloned ) used 
+  
+  they can use the package json file to install all packages 
+  all at once
+
+
+** ( Example Process ):
+• "npm install" ( in folder that has package.json )
+• npm reads the file 
+• npm automatically installs all packages listed on the file 
+
+
+- its crucial to create a package.json when creating a new project
+
+
+** ( Example Command in creating a package.json ):
+• "npm init" ( manually fill out your info & create the file )
+• "npm init -y" ( automatically fill out your info & create the file )
+
+Note: you can always change the information of the file anytime 
+
+
+
+*** ( The PACKAGE-LOCK.JSON FILE ):  
+
+- When you install packages using npm install and rely only on package.json, 
+  version numbers are often prefixed with a "caret ^" or "tilde ~":
+
+- If someone clones your project and runs npm install, they could install 
+  newer minor or patch versions of dependencies you didn't originally use. 
+ 
+- The package-lock.json file locks down the exact versions of every package ( & their dependencies ), 
+  ensuring everyone who installs the project gets the same, tested environment.
+ 
+- if package-lock.json is present, npm installs the exact versions from the lock file, 
+  not the latest allowed by package.json.
+
+
+  
+*** ( Dealing w/ Dependencies  ):
+
+- after installing a package in your project folder,
+  it will be listed in your package.json file in the
+  "dependencies" or as a "dependency"
+
+  this means, you can use functions from 
+  the package ( you installed ) in your code   
+
+- then after installation, a "node_modules" directory is created 
+  ( it's where npm stores all package files that was installed )
+
+- in the node moduels, their are packages that came along, after installing a package.
+  they're "packages" that the "package you installed" also uses  
+
+
+
+*** ( Dependency Versions & Updates ):  
+
+- Versioning & Updating is important in npm,
+  since a pacakge also uses packages, 
+  
+  if the package versions you installed aren't update, 
+  then they might break your code 
+
+
+** ( The Version Number Meaning ):
+
+- 1.0.0, the first public release 
+
+- NPM packages version numbers aren't random,
+  they follow semantic versioning, a system of
+  numbering software versions   
+
+( The number versions ):
+
+- a number may contain three digits, symbolising 
+  versions & is seperated by a dot
+
+
+{ Example: } ^11.11.11
+
+• 1st Digit: Major Version
+• 2nd Digit: Minor Version
+• 3rd Digit: Patch Version   
+
+- Major Updates, 
+• Used for big changes 
+• Not Backwards compatible ( can't work in older versions using it )
+• Updating w/ this version, mostly breaks old code 
+
+- Minor Updates, 
+• New features that are Backwards compatible ( can work in older versions using it ) 
+• Updating w/ this version, Won't break older builds ( IDEALLY )
+
+- Patch Updates, 
+• SMALL BUG FIXES 
+• Doesn't break anything 
+
+
+** ( How you View & Update packages ):
+
+{ CMD }:  "npm view <package> versions"
+{ What is it? }: views all the versions of the specific package 
+
+- the "^" symbol, simply means there is "a new version" 
+  of that package, in which you can use { CMD }: "npm update" 
+  to update the package to that version 
+  ( but it won't update if the new version is "MAJOR" )
+
+- { CMD }: "npm update" only updates packages w/ "Minor updates", for "MAJOR" ones you use...
+
+• { CMD }: "npm install <package>@latest"
+• { CMD }: "npm install <package>@<version>" ( this also works for older versions )
+• { CMD }: "npm install <package>@~<2.2>" ( installs the lastest patch within the 2.2 or whatever number )
+
+
+
+*** ( NPM Cheat sheet ):
+
+Note: parentheses aren't included in the code
+
+
+** ( Initialize Project ):
+
+{ CMD }: "npm init"
+{ What is it? }: "Interactive setup of package.json."
+• guide you through a series of prompts to create a new package.json file.
+
+
+{ CMD }: "npm init -y"
+{ What is it? }: "Auto-generate package.json with default values." 
+• instantly generate a package.json file.
+
+
+
+** ( Installing Packages ):
+
+{ CMD }: "npm install <package>"
+{ What is it? }: "Local Dependency (default)"
+• Installs to node modules and adds to dependencies.
+
+
+{ CMD }: "npm install <package> --save-dev"
+{ What is it? }: "Dev Dependency"
+• Adds to devDependencies.
+
+
+{ CMD }: "npm install -g <package>"
+{ What is it? }: "Global Install"
+• Installs package globally.
+
+
+
+** ( Uninstalling Packages ):
+
+{ CMD }: "npm uninstall <package>"
+{ What is it? }: "Remove Package"
+• Removes the package.
+
+
+
+** ( Listing Packages ):
+
+{ CMD }: "npm list"
+{ What is it? }: "List Local Packages"
+• Show installed packages (local).
+
+
+{ CMD }: "npm list -g --depth=0"
+{ What is it? }: "List Global Packages"
+• List global packages.
+
+
+
+** ( Updating Packages ):
+
+{ CMD }: "npm update"
+{ What is it? }: "Update All"
+• Updates all packages to allowed versions in package.json.
+
+
+{ CMD }: "npm install <package>@latest"
+{ What is it? }: "Force Update Specific"
+• Force update to latest version.
+
+
+
+** ( Searching & Info ):
+
+{ CMD }: "npm search <term>"
+{ What is it? }: "Search"
+• Search for packages.
+
+
+{ CMD }: "npm info <package>"
+{ What is it? }: "Package Details"
+• View package details.
+
+
+
+** ( Package Versioning ):
+
+{ CMD }: "^1.2.3"
+{ What is it? }: "Caret Range"
+• Compatible with version (>=1.2.3 <2.0.0).
+
+
+{ CMD }: "~1.2.3"
+{ What is it? }: "Tilde Range"
+• Approximately equivalent (>=1.2.3 <1.3.0).
+
+
+{ CMD }: "1.2.3"
+{ What is it? }: "Exact Version"
+• Exact version.
+
+
+
+** ( Scripts ):
+
+{ CMD }: "Add to package.json → "scripts": { "start": "node app.js" } "
+{ What is it? }: "Define Script"
+• Sets up a custom script named "start".
+
+
+{ CMD }: "npm start"
+{ What is it? }: "Run Start Script"
+• Executes the start script (a common shortcut).
+
+
+{ CMD }: "npm run <script>"
+{ What is it? }: "Run Custom Script"
+• Runs any custom script defined in package.json.
+
+
+{ CMD }: "npm test"
+{ What is it? }: "Run Test Script"
+• Shortcut for the "test" script.
+
+
+
+** ( Clean Cache ):
+
+{ CMD }: "npm cache clean --force"
+{ What is it? }: "Clear Cache"
+• Cleans the npm cache, forcing removal of cached data.
+
+
+
+** ( Lock File ):
+
+{ CMD }: "package-lock.json"
+{ What is it? }: "Dependency Locking"
+• Locks dependency versions for consistent installs across different environments.
+
+
+
+** ( Audit & Security ):
+
+{ CMD }: "npm audit"
+{ What is it? }: "Check Vulnerabilities"
+• Checks for security vulnerabilities in project dependencies.
+
+
+{ CMD }: "npm audit fix"
+{ What is it? }: "Auto-fix Vulnerabilities"
+• Automatically fixes found security issues by updating dependencies.
+
+
+
+** ( Misc ):
+
+{ CMD }: "npx <package>"
+{ What is it? }: "Run Without Install"
+• Executes a package command without needing to install it globally or locally first.
+
+
+{ CMD }: "npm outdated"
+{ What is it? }: "Check Outdated Packages"
+• Displays packages that are out of date compared to their latest available versions.

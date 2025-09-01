@@ -1,0 +1,183 @@
+- - - ( JavaScript HTML & DOM Modification Guide ) - - - 
+
+
+
+** ( HTML & JS that will be used in examples ): 
+
+• HTML: 
+<div id="myDiv"> Hello </div>
+
+• JS: 
+let UserElement = document.getElementById("myDiv");
+
+
+
+** ( Creating Elements ):
+
+- Creates a new HTML element node of the given tag name.
+
+- This does not place the element into the DOM yet—it only exists in memory.
+
+
+( Syntax & Example ): 
+
+• document.createElement(tagName)
+
+• const UserElement = document.createElement("div");
+
+
+
+** ( SET / ADD, Attributes & Content ):
+
+======================================================
+
+1) ( UserElement.id = "value" ):
+
+- Directly gets or sets the id attribute of the element
+
+- Equivalent to setAttribute("id", value), but cleaner for just the id
+
+
+( Example ):
+
+• JS:
+UserElement.id = "mainBox";
+
+• HTML:
+<div id="mainBox"> Hello </div>
+
+======================================================
+
+2) ( UserElement.setAttribute(name, value) ):
+
+- Sets an HTML attribute on the element ( e.g... id, class, src, href, etc... )
+
+- You can use this to dynamically style or identify elements.
+
+
+( Example ):
+
+• JS:
+UserElement.setAttribute("id", "box1");
+UserElement.setAttribute("class", "box2");
+
+• HTML:
+<div id="box1" class="box2"> Hello </div>
+    
+======================================================
+
+3) ( UserElement.textContent = "Your Text" ):
+
+-  Sets or Gets the plain text inside an element (HTML tags will be escaped).
+
+
+( Example ):
+
+• JS: 
+UserElement.textContent = "Sample Text"
+
+• HTML:
+<div id="myDiv"> Sample Text </div>
+
+======================================================
+
+4) ( UserElement.innerHTML = "Your Content" ):
+
+- Gets or sets the HTML content inside the element (excluding the element tag itself)
+
+- Replaces or returns only the inner part — child elements, tags, or text
+
+
+( Example ):
+
+• JS:
+UserElement.innerHTML = "<strong>Bold</strong>";
+
+• HTML:
+<div id="myDiv"> <strong>Bold</strong> content </div>
+
+======================================================
+
+5) ( UserElement.outerHTML = "Your Content" ):
+
+- Gets or sets the HTML content inside the element (excluding the element tag itself)
+
+- Replaces or returns only the inner part — child elements, tags, or text
+
+
+( Example ):
+
+• JS:
+UserElement.innerHTML = "<p>New element</p>";
+
+• HTML:
+<p>New element</p>
+
+
+
+** ( Append an ELEMENT to DOM ):
+
+- document.body.append(UserElement) 
+• Adds the element to the end of <body> (as the last child)
+
+- document.body.prepend(UserElement) 
+• Adds the element to the beginning of <body> (as the first child)
+
+- document.body.getElementByID("Existing ID").append(UserElement) 
+• Adds the element to the end of the specified element (as its last child)
+
+- document.body.getElementByID("Existing ID").append(UserElement) 
+• Adds the element to the beginning of the specified element (as its first child)
+
+
+
+** ( Inserting Raw HTML Strings ):
+
+- Inserts a string of HTML at the specified position relative to the element.
+
+- Does not destroy or overwrite existing children.
+
+
+( Syntax ):
+insertAdjacentHTML(position, string)
+
+
+( Positions ):
+• "beforebegin"
+• "afterbegin"
+• "beforeend"
+• "afterend"
+
+
+( Example ):
+UserElement.insertAdjacentHTML("beforeend", "<p>Appended HTML</p>");
+
+
+
+** ( Replace & Remove an HTML Element ):
+
+
+( Remove ):
+
+- UserElement.remove() or document.ElementSelector("node list").remove();
+• Completely removes the element itself from the DOM
+• Does not need to access the parent — direct and simple
+
+- parentElement.removeChild(UserElement) 
+• Removes a child element from its parent
+• You must have a reference to the parent element
+
+- document.ElementSelector(".container").removeChild(UserElement);
+• Selects the element with class "container" from the DOM
+• Removes the specified child element from it (must be a direct child)
+
+
+( Replace ):
+
+- parentElement.replaceChild(newChild, oldChild)
+• Replaces an existing child element with a new one
+• You need access to both the parent and the element being replaced
+
+- oldElement.replaceWith(newElement)
+• Directly replaces an element with another
+• You only need a reference to the element being replaced (no parent needed)

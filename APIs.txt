@@ -1,0 +1,131 @@
+- - - ( API / APPLICATION PROGRAMMING INTERFACE ) - - -
+
+- a set of tools, rules, protocols & procedures that allows different
+  software systems to communicate w/ each other
+
+- It's made for programmer's to use & extend in their applications   
+
+- They provide programmer's the means of controlling 
+  interactions, while abstracting how they work 
+
+- Most API's are local to the code base( they exist within the code )
+  that are used to avoid in recreating the wheel
+
+
+
+** ( Frameworks ):
+
+- they provide an API that allows a user to extend what has been 
+  provided to make it your own 
+
+- While the inner workings are abstracted, you only need 
+  to know how to write the code the framework expects 
+  ( Specific Rules / Format of how the framework must be used )
+
+
+( Example ):
+
+- Web frameworks
+
+  provides users the ability to add a new route to 
+  their "Web Application"
+
+  which allows to write out dynamic data to a template
+  which a user specified, which you can do in a few lines 
+  of code 
+
+
+
+** ( Local APIs ): 
+
+- Exist within your codebase, they help avoid "recreating the wheel" and abstract away work
+
+- ( Examples of Local APIs ): 
+• programming language 
+• string methods 
+• libraries
+• frameworks
+
+
+
+** ( Remote APIs ): 
+
+- Are not executed locally in your codebase. 
+
+- They allow remote control of objects or access to data/computational power beyond your local device.
+
+
+- ( Examples of Remote APIs ): 
+• Remote control ( TV )   
+• robot commands
+• traffic sign changes
+• drone control
+• music recognition apps (Shazam)
+• Google Translate AR app
+
+
+- ( Benefits of Remote APIs ): 
+• Access to vast data (e.g., "Cloud")
+• computational power 
+
+
+
+** ( REST APIs ):
+
+- REST / Representational State Transfer, It describes how softwares communicate over the web (the internet)
+  This is done by making requests similar to how a web browser requests a webpage, but the response is JSON instead of HTML. 
+
+- Instead of HTML (like for websites), REST APIs primarily use JSON (JavaScript Object Notation). 
+
+- they're stateless, meaning the server doesn't keep any client information between requests.
+
+STATEFUL: The server (not just "the system") remembers and understands the user's previous interactions.
+STATELESS: The server doesn't remember. The client is responsible for providing the server with all necessary information about its current state and for each request.
+
+
+Absolutely — here's a cleaner, more concise version of your explanation without losing the core ideas:
+
+
+
+** ( URLs ):
+
+- ( Base URL ):
+• The main address where the API lives online.
+• It’s like the home or root of the API.
+
+( Example ):
+• https://api.example.com/v1
+
+
+
+- ( Endpoints ):
+• Paths added to the base URL to access specific resources or actions.
+
+( Example ):
+• /users/25 — retrieves user with ID 25
+• /products — list or create products
+
+
+- ( Combined ):
+• https://api.example.com/v1/users/25
+
+
+
+** ( Why Use APIs? ):
+
+- ( Security ):
+• APIs act as a layer between the client and the database, exposing only specific, controlled data — keeping sensitive info hidden from users (e.g., in viewable JavaScript code).
+
+- ( Versatility ):
+• One API can serve multiple platforms (web, mobile, desktop), keeping data consistent across all applications.
+
+- ( Modularity ):
+• APIs separate the frontend from the backend through a stable interface. This allows teams to update or replace backend technologies without affecting the client, as long as the API stays consistent.
+
+- ( Interoperability ):
+• Public APIs let third-party developers build on your services. Private APIs support internal integration with proper authentication (e.g., OAuth 2.0).
+
+- ( Automation ):
+• APIs enable systems to communicate and trigger actions automatically ( like bots executing trades or services syncing data )
+
+

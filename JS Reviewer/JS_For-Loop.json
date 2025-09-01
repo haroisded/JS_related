@@ -1,0 +1,65 @@
+- - - ( For - Loop ( Specifically for Objects & Arrays ) ) - - - 
+
+- ( Objects ):
+
+let tryobj = { a : 'uel', b : 'cassandra', c : 'bob' };// Object
+
+1) // Access Object Properties 
+• for( let x in tryobj ) { console.log(x); }// Outputs: a, b, c 
+
+2) // Access Property Values 
+• for( let x in tryobj ) { console.log(tryobj[x]); }// Outputs: uel, cassandra , bob
+
+3) // Access Property Object Value
+• for( let x in tryobj ) {
+        
+  if(typeof tryobj[x] === "object"){ 
+  
+  for( let y in tryobj[x] ){ console.log( y + " : " + tryobj[x][y] );  }
+  
+  }else{ console.log(tryobj[x]); } 
+
+}// Outputs: uel, cassandra, x : bob
+
+
+4) // foreach, Access Object Properties (keys)
+• Object.keys(tryobj).forEach( function(key) { console.log(key); } ); // Outputs: a, b, c 
+
+5) // foreach, Access Object Properties (keys)
+• Object.values(tryobj).forEach( function(value) { console.log(value); } ); // Outputs: uel, cassandra , bob
+
+6) // foreach, Access Property + Value 
+• Object.entries(tryobj).forEach( function([key, value]) { console.log(key + " : " + value); } ); // Outputs: a : uel, b : cassandra, c : bob
+
+7) // foreach, Access Nested Object Values
+• Object.entries(tryobj).forEach(function([key, value]) {
+  
+  if (typeof value === "object") {
+    Object.entries(value).forEach(function([innerKey, innerVal]) { console.log(innerKey + " : " + innerVal); });
+  } 
+  else { console.log(value); }
+
+});
+
+
+
+- ( Arrays ):
+
+const fruits = ["Apple", "Banana", "Cherry"]; // Array
+
+1) // for loop
+• for (let i = 0; i < fruits.length; i++) { console.log(fruits[i]); }
+
+2) // for...of loop
+• for (let fruit of fruits) { console.log(fruit); }
+
+3) // forEach loop
+• fruits.forEach( function(fruit) { console.log(fruit); } );
+
+- All samples output the same thing, 
+/* 
+Apple
+Banana
+Cherry
+*/
+

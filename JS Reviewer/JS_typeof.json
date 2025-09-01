@@ -1,0 +1,31 @@
+- - - ( "typeof" keyword & what they return → ) - - - 
+
+- reutrns a string describing the type of the variable 
+
+• typeof "hello"      → "string"
+• typeof 123          → "number"
+• typeof NaN          → "number"
+• typeof true         → "boolean"
+• typeof undefined    → "undefined"
+• typeof null         → "object"
+• typeof {}           → "object"
+• typeof []           → "object"
+• typeof function(){} → "function"
+• typeof Symbol()     → "symbol"
+• typeof BigInt(123)  → "bigint"
+
+• ( Example ):
+
+let x = 3;
+
+console.log(typeof x); //Outputs number
+
+
+
+• ( Example Use Case ):
+
+let x = 123;
+
+if( typeof x === "number" ){ console.log('true'); }
+else{ console.log('false'); }
+//Outputs: true  

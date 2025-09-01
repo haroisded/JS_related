@@ -1,0 +1,132 @@
+- - - ( Functions ) - - -
+
+
+
+- ( Callback Functions ):
+
+- function passed as an argument to another function
+
+
+( Example ):
+
+
+let age = undefined;  //Variable to be modified
+
+
+function UserAdd( x, y ){ return x + y; } // Returns a ADD result
+function UserMultiply( x, y ){ return x * y; } // Returns a Multiplication result
+function UserOutput( x ){ console.log(x); } // Outputs whatever value is passed in parameters
+
+
+function UserTest( x, y, My1stCallback, My2ndCallback, My3rdCallback ){ 
+
+ age = My1stCallback( x, y ); // Modifies age value ( 1st Calculation ) 
+
+ My3rdCallback( age ); // Outputs age value ( of the 1st Calculation ), Output: 15
+
+ age = My2ndCallback( x, y ); // Modifies age value ( 2nd Calculation ) 
+
+}
+
+
+UserTest( 5, 10, UserAdd, UserMultiply, UserOutput );
+/* 
+Function Call & Passing in Values: 
+x = 5
+y = 10
+My1stCallback = UserAdd
+My2ndCallback = UserMultiply
+My3rdCallback = UserOutput
+*/
+
+
+console.log( "\n" + age ); // Last Output, Outputs age value ( of the 2nd Calculation ), Output: 50
+
+
+
+- ( Function Expressions ):
+
+- define functions as values or variables
+
+( Example ):
+
+const hello = function(x,y){ console.log(x + y); } // Variable into function
+
+hello(10,20); // Outpus: 30
+
+
+
+- ( Arrow Functions ):
+
+- a concise way to write function expressions
+
+( Example ):
+
+// Removing the "function word"
+const hello = (x,y) => { console.log(x + y); } 
+
+// If Single statement, you can remove Brackets "{ }" 
+const hello = (x,y) => console.log(x + y); 
+
+hello(10,20); // Outpus: 30 ( the same )
+
+
+
+- ( Closures ):
+
+- functions that can access values 
+  outside their own curly braces "{ }"
+
+- it's a function combined w/ its Outer State 
+  ( Outer State = Variables / Data defined outside a Function / Method )
+
+- they require more memory & processing power
+
+
+( Example (1) Simple example of closure  ):
+
+let b = 3; // Variable accessed by the function, in Reference
+
+function SampleADD(a){ return a + b; } 
+// Calculates: 
+// Value passed on the "a"( parameter ) & the "b" ( reference, which is 3 )
+// Then Returns the Value
+
+
+( Example (2) Data Encapsulation ):
+
+- prevent leaking or exposing data when not needed 
+
+
+function outer() {
+
+ let name = "hello world";
+
+ function inner() { return 'Hello ${state}'; }
+
+ return inner;
+
+}
+
+- Example Explanation..
+• Inner function, has access to the data defined in the outer scope 
+• Outer function, however doesn't have access to the inner function 
+
+
+( Example (3) Using Closures as a function factory ):
+
+- Takes an argument then returns a brand new function,
+  that can be passed along to other functions that expect a callback
+
+
+function WarningMSG(message) { 
+ return function(){ console.log(message) } // you can also use arrow functions 
+}
+
+const TownHallWarning = WarningMSG("Quarantine");
+
+TownHallWarning(); //Outputs: 'Quarantine'
+
+
+
+

@@ -1,0 +1,39 @@
+- Study JS, specifically...
+
+**( Foundational ):
+• Let & Var 
+• This keyword 
+• Objects   
+• Arrays    
+• For - Loop ( for Object & Array Output ) 
+
+*( Function Focused ):
+• Function Expressions  
+• Arrow Functions  
+• Callback functions  
+• Closures
+
+*( Asynchronous ):
+• Asynchronous Code 
+• Promises 
+• Async / Await 
+
+*( JS & HTML combined ):
+• Node Lists 
+• Class Lists  
+• Element Selectors 
+• DOM manipulation
+• Event Listeners ( Mouse Events & Key Events ) 
+
+*( Advance ):
+• JSON 
+• fetch API 
+
+
+( Optional ):
+• Destructuring
+• Symbols
+• Methods ( Promises )
+• Static Keyword 
+• Super Keyword
+• Key Events

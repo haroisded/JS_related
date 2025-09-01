@@ -1,0 +1,88 @@
+- - - ( Asynchronous ) - - -
+
+
+
+** ( setTimeout() ):
+
+- function in JavaScript that allows you to schedule
+  the execution of a function, after an amount of time ( milliseconds )
+
+- The delay set in setTimeout() isn't always exact, because, 
+  the JavaScript runtime environment (like a browser or Node.js) might be busy, 
+  causing the function to run slightly later.
+
+- SetTimeout, is one of the many asynchronous functions 
+
+( Syntax ):
+
+setTimeout( callback or function , delay );
+  
+
+( Example (1) Using a Callback ):
+
+function sayHello(){ window.alert("Hello"); }
+
+setTimeout( sayHello, 3000 ); //Outputs: Hello after 3secs 
+
+
+( Example (2) Using a Literal Function & using Arrow Expression  ):
+
+setTimeout(
+function(){ console.log('Hello World') }    
+,3000    
+); //Outputs: Hello after 3secs ( Same thing )
+
+setTimeout(
+() => console.log('Hello World') 
+,3000    
+); //Outputs: Hello after 3secs ( Same thing )
+
+
+
+** ( Synchronous & Asynchronous ):
+
+- Synchronous...
+• Executes line by line consecutively in a sequential manner
+• Code that waits for an operation to complete
+
+- Asynchronous...
+• Allows multiple operations to be performed at the same time w/o waiting 
+• Doesn't block execution flow and allows other programs to continue 
+( use cases: I/O operations, Network Requests, Async/Await )
+
+( Example of Synchronous ):
+
+console.log("Task 1");
+console.log("Task 2");
+console.log("Task 3");
+
+// Explanation of the Example: 
+// It executes line by line, Task 2 will not output until Task 1 is complete
+
+( Example of Asynchronous ):
+
+function func1(callback){
+
+setTimeout( 
+  function(){ 
+    console.log("Task1"); 
+    callback()
+  }    
+  ,3000
+);
+
+}
+
+function func2(){
+ console.log("Task2");
+ console.log("Task3");
+ console.log("Task4");
+}
+
+func1(func2);
+
+// Explanation of the Example: 
+// • func1 is invoked & func2 is passed as an argument 
+// • using setTimeout, After 3 Secs, it will Output: "Task1" 
+// • then the callback ( func2 ) is now invoked, Outputting 
+//   "Task 2", "Task 3", "Task 4" Synchronously           

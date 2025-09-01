@@ -1,0 +1,17 @@
+- - - ( Variables ) - - - 
+
+- Scope in programming means, the area (or context) in which a 
+  declared variable is visible and accessible
+
+- ( Examples of block scope ):
+• if / else blocks
+• for, while, and do...while loops
+• Standalone { } blocks
+• switch statements
+• Function bodies (also technically block-scoped)
+
+- ( Example of function scope ): the function itself ( self explanatory )
+
+- ( var ): is a function scope variable 
+
+- ( let & const ): are block scope variables

@@ -1,0 +1,99 @@
+- - - ( Promises ) - - -
+
+- a promise in JS is something like in real life in 
+  where you're committed on something, & it has 2 results,
+  either its Completed( resolved ) or Failed( rejected )
+  
+- Description of Promise( in order ):
+• Promise is a constructor function in JavaScript
+• Promise is responsible for returning the values of resolve() & reject()
+• You create a promise by calling or assigning new Promise(executor)
+• The executor is just any function but only takes 2 parameters: resolve and reject,
+  it is responsible for calling resolve() & reject()
+  ( the 1st param = resolve | the 2nd param = reject ) 
+
+
+( Example ):
+
+let p = new Promise( 
+
+ function( resolve, reject ) => { 
+  let a = 1 + 1 
+
+  if( a == 2 ){ resolve('Success'); }
+  else{ reject('Failed'); }
+ };
+
+);
+
+
+
+**( Resolve & Reject ):
+
+- resolve & reject are callback functions, with the sole purpose of
+  passing their value to .then() or .catch() respectively.
+
+
+( Example ):
+
+- Values or Reasons that can be passed inside Reject & Resolve
+  ( both example values can be used in Reject & Resolve )
+
+• resolve(42);                   // Number
+• reject("Hello");               // String
+• resolve(true);                 // Boolean
+• reject(null);                  // null
+• resolve(undefined);            // undefined
+• reject([1, 2, 3]);             // Array
+• resolve({ a: 1, b: 2 });       // Object
+• reject(() => "Hi");            // Function
+• resolve(new Date());           // Date object
+• reject(Promise.resolve(99));   // Another Promise (will auto-flatten)
+
+
+
+**( .then & .catch ):
+
+- are Functions whose sole purpose is to receive 
+  the value / reason passed by reject & resolve 
+
+- Just like the Promise constructor takes one function with two parameters,
+  .then() and .catch(), each, only takes 1 Function w/ only 1 Parameter
+  ( their parameter catches the value passed by resolve & reject )
+
+• Resolve .then( (result) => console.log(result) )
+• Reject  .catch( (result) => console.log(result) );
+
+( Example ):
+
+let your_ex = "I miss you";
+let wifi_signal = "Strong";
+
+
+let message = new Promise(  
+    
+( resolve, reject ) => {   
+     if( wifi_signal === "Strong" ){ resolve(your_ex); } 
+     else{ reject("wifi signal: weak"); }
+ }    
+    
+).then( (result) => console.log(result) )
+.catch( (result) => console.log(result) );
+// Outputs: "I miss you"
+
+
+
+** ( Make Promise more readable ):
+
+function myExecutor(resolve, reject) {
+  if (true) { resolve("Success!"); } 
+  else { reject("Error!"); }
+}
+
+let x = new Promise(myExecutor);
+
+x.then(result => {
+  console.log(result);
+}).catch(error => {
+  console.error(error);
+});

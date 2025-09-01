@@ -1,0 +1,56 @@
+- - - ( HTTP & FS module ) - - -
+
+
+** ( Necessity Methods ):
+
+1. Import Library 
+{ code }: 
+• "const http ( or any name ) = require('http');" // The module in creating a web server 
+• "const fs ( or any name ) = require('fs');" // The module in 
+
+{ what is it? }: 
+• Imports the http module 
+
+
+
+2. Create Server Method
+{ code }: "const server = http.createServer((req, res) => { ... });"
+{ what is it? }:
+• a method that takes in a callback function that handles network requests
+• it also returns a server object  
+
+
+( Properties the createServer() returns are ): 
+
+// Starts to listen to the ports & for incoming requests ( all are optional )
+• server.listen(port, [hostname], [backlog], [callback] ) 
+
+// Stop the server from accepting new connections
+• server.close( [callback] ) 
+
+// Listen for emited events by the server object after listening ( 'request', 'connection', 'error', 'close' )
+• server.on( event, [callback] ) 
+
+// Returns the address and port the server is using
+• server.address() 
+
+// Get number of concurrent connections
+• server.getConnections( [callback] ) 
+
+// Set default timeout for all connections
+• server.setTimeout( timeout, [callback] ) 
+
+// Max number of clients allowed
+• server.maxConnections
+
+//  Default timeout for client connections (in milliseconds)
+• server.timeout
+
+// returns a boolean, depending if server.listen(3000) is used / not
+• server.listening
+
+
+3. Server ( creatServer returned ) listens to port 
+{ code }: "server.listen( 2000 or a variable, callback → runs if listen successful )" 
+{ what is it? }: 
+• A method that listens to the port in order to start the server 

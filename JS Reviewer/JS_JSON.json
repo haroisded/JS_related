@@ -1,0 +1,106 @@
+- - - ( JSON ) - - -
+
+- JSON or Java Script Opbject Notation, commonly used for API's and Configs 
+
+
+** ( JSON Types ):
+
+• Strings 
+• Numbers
+• Booleans 
+• NULL
+• Arrays
+• Objects
+
+
+** ( Example Syntax ):
+
+[ // Array
+  { //Object 1
+    str: "Hello, world",         // String
+    num: 42,                     // Number
+    bool: true,                  // Boolean
+    empty: null,                 // NULL
+    arr: [1, 2, 3],              // Array
+    obj: { name: "Alice" }       // Object
+  },
+  { //Object 2
+    str: "Goodbye!",            
+    num: 3.14,                  
+    bool: false,                 
+    empty: null,                 
+    arr: ["apple", "banana"],   
+    obj: { age: 25 }             
+  }
+]
+
+
+
+** ( JSON.stringify() & JSON.parse() ):
+
+- JSON.stringify( "object" / "array" ) = converts, JS object / array -> A Single String 
+
+- JSON.parse( "object" / "array" ) = converts, JS string -> JSON object / array ( depends on the syntax )
+
+
+
+** ( fetch(url, options) & .json() ):
+
+
+
+- ( fetch(url, options) ):
+
+• a promise based function used for making HTTP messages to fetch resources
+  ( JSON, images, files )
+
+• fetch(), returns the whole HTTP response as an "JS object" ( but not the actual data in the "body" yet )
+
+• since it's promise based, you can use ( async/await, .then(), .catch() )
+
+
+( Syntax ):
+
+- "url", the resource your trying to make a request 
+- "options", object that defines how the request behaves, it includes...
+• HTTP method (GET, POST, etc.)
+• Headers
+• Body (for POST/PUT)
+• Mode (e.g., CORS)
+• Credentials (cookies/auth)
+
+
+( Example of fetch w/POST method ):
+
+fetch(
+ "url", 
+ {
+ method : "POST",
+ headers : { 'Content-Type' : 'application/json' },
+ body: JSON.stringify({ name: 'user 1' })
+ }
+).then( response => { return response.json() })
+.then( (data) => { console.log(data); })
+.catch( (error) => { console.log('ERROR'); }); 
+
+/* 
+Example Explanation:
+• A request has been made on a specific URL using a "POST" method 
+• The request body, is converted into string 
+• if request successful, fetch will return a promise, & ".then" will parse the returned value
+• After parsing, the contents of the data section ( obj ) is outputted 
+• if request failed, Outputs : Error 
+*/ 
+
+
+
+- ( .json() ):
+
+• a method that reads the "body" of that response and parses it into a usable "JS object"
+
+• returns a Promise, which, when resolved, gives you that "JS object"
+
+
+( Example: )
+
+fetch( "URL" )) //Returns a HTTP response as an object
+.then( (response) => { response.json() } ) //Returns a Promise which, when resolved, gives you a HTTP response body as an object

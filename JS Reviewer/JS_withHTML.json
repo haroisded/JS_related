@@ -1,0 +1,84 @@
+- - - ( JS w/ HTML ) - - -
+
+
+** ( NodeList ):
+
+- Static collection of HTML elements by ( id, class, element )
+
+
+
+** ( classList ):
+
+- Element Property in Javascript used to interact 
+  w/ an element's CSS class
+
+ • add() //Adds a CSS class to an element 
+ • remove() //Removes a CSS class to an element
+ • toggle() //if present, Remove a CSS class to an element, if not add 
+ • replace( oldClass, newClass ) //Replaces present class w/ a new class
+ • contains //Returns true if Element uses that class 
+
+( Example ):
+
+ • Element_Holder.classList.add("Class");
+
+ • Element_Holder.classList.remove("Class");
+
+ • Element_Holder.classList.toggle("Class");
+
+ • Element_Holder.classList.replace("OldClass", "NewClass");
+
+ • if( Element_Holder.classList.contains("Class") ){ ... }
+   else{ ... }
+
+
+
+** ( Element Selectors ):
+
+- methods used to target & manipulate HTML elements
+
+- they allow you to select one or 
+  multiple html elements from the DOM
+
+  
+( Example ):
+
+ • const Element_Holder = document.getElementById("ID");
+ // returns a single Element, that matches Inputted "ID" or NULL ( when not found )
+
+
+ • const Element_Holder = document.getElementsClassName("Class"); 
+ // returns an array of Elements, that matches Inputted "Class"
+ 
+
+ • const Element_Holder = document.getElementsByTagName("Class"); 
+ // returns an array of Elements, that matches Inputted "Tag" ( <h1>, <div>, <p> etc...)
+   
+
+ • const Element_Holder = document.querySelector("#ID" or ".Class" or "Tag"); 
+ // returns a single Element, that 1st matches Inputted "ID", "Class", "Tag"
+ // but strict w/ syntax ( Except for tag ), 
+ // ID = #ID | Class = .Class | Tag = Tag
+
+ 
+ • const Element_Holder = document.querySelectorAll("#ID" or ".Class" or "Tag"); 
+ // same as the "document.querySelector" but, returns an array of Elements instead
+ 
+
+
+** ( Mouse Events ):
+
+- Event Listener, A function that waits for and responds to specific actions on a chosen element. 
+  It allows your code to react when something happens.
+
+
+( Syntax ):
+
+ • Element_Holder.addEventListener( event, callback or function );
+
+
+( List of Events ):
+
+ • click, functions are activated, when an element with this event is clicked 
+ • mouseover, functions are activated, when an element with this event is hovered
+ • mouseout, the opposite of mouseover

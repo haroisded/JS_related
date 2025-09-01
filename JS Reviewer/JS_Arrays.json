@@ -1,0 +1,70 @@
+- - - ( Arrays ) - - -
+
+
+
+** ( Example (1) All Valid Array Values ):
+
+• str: ["hello"]
+• num: [123]
+• bool: [true]
+• nul: [null]
+• undef: [undefined]
+• obj: [{ key: "value" }]
+• arr: [[1, 2, 3]]
+• func: [function() { return "hi"; }]
+• sym: [Symbol("id")]
+• big: [123n]
+
+- Arrays can store mixed types  
+  e.g. [1, "two", true, null]
+
+
+
+** ( Example (2) Create Empty Array ):
+
+// Both syntax create an empty array
+• const arr = [];
+• const arr = new Array();
+
+- You can start empty and add values later.
+
+
+
+** ( Example (3) Create & Initialize Array ):
+
+• const fruits = ["Apple", "Banana", "Mango"];
+
+- Arrays are zero-indexed: fruits[0] is "Apple"
+
+
+
+** ( Example (4) Access & Modify Array Values ):
+
+// Accessing
+• fruits[1]; // Outputs: "Banana"
+
+// Modifying
+• fruits[1] = "Peach"; //  Outputs: ["Apple", "Peach", "Mango"]
+
+// Adding New Values
+• fruits.push("Grapes");    // Add to end
+• fruits.unshift("Orange"); // Add to start
+
+// Removing Values
+• fruits.pop();     // Removes last
+• fruits.shift();   // Removes first
+
+// Output Array length
+• fruits.length; // e.g. 3
+
+
+
+** ( Example (5) Spread Operator with Arrays ):
+
+- "..." spreads array items into another array or function
+
+const nums = [1, 2, 3]; // Array
+
+• const copy = [...nums]; // [1, 2, 3]
+
+• const merged = [...nums, 4, 5]; // [1, 2, 3, 4, 5]

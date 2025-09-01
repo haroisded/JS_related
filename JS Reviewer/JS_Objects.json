@@ -1,0 +1,128 @@
+- - - ( Objects ) - - - 
+
+
+
+- ( Example (1) All property values ):
+• str: "hello",
+• num: 123,
+• bool: true,
+• nul: null,
+• undef: undefined,
+• obj: { key: "value" },
+• arr: [1, 2, 3],
+• func: function() { return "hi"; },
+• sym: Symbol("id"),
+• big: 123
+
+- null and undefined are the same, their use cases are
+• a variable that has null, means value is empty 
+• a variable that has undefined, means value is not yet / will be set 
+
+
+
+- ( Example (2) Create Empty Object ):
+
+// ( Both Syntax are the same )
+• const person = { }; 
+• const person = new Object( );
+
+// Add Properties to empty Object
+• person.firstName = "John";
+• person.lastName = "Doe";
+• person.age = 50;
+• person.eyeColor = "blue";
+
+
+
+- ( Example (3) Create & Initialize Object ):
+
+• const person = {
+  firstName : "John", 
+  lastName : "Doe", 
+  age : 50, 
+  eyeColor : "blue"
+  };
+
+
+
+- ( Example (4) Object Property Accessibility ):
+
+// Accessing Object Properties
+• objectName.propertyName;
+• objectName["propertyName"];
+
+// Accessing Nested Object Properties
+• objectName.propertyName.propertyName;
+• objectName["propertyName"]["propertyName"];
+
+// Adding new Property in Object
+• person.nationality = "English"; 
+
+- New properties, must have a value, otherwise they won't get added
+
+- New Properties, must have a different name, otherwise they'll
+  juts overwrite the value of the property that's already present 
+
+// Delete Object Properties
+• delete objectName.propertyName
+• delete objectName["propertyName"]
+
+
+
+- ( Example (5) Object methods ):
+
+• const person = {
+  firstName: "John",
+  lastName: "Doe",
+  fullName: function() { return this.firstName + " " + this.lastName; }
+};
+
+- "this" refers to the object it's in
+
+// Accessing / Invoking Object Method, Output: John Doe
+• console.log( person.fullName() ); 
+
+// /Adding a Method to an Object
+• obj.Property = function () { return this.firstName + " " + this.lastName; }; //Adds a new property with a method as a value
+• obj.PresentProperty = function () { return this.firstName + " " + this.lastName; }; //Overwrites property value
+
+
+
+- ( Example (6) Object Values & Entries ):
+
+- Object.values( object ); // returns an array of values from an object
+  
+• Example: [ value1, value2, ... ]
+
+
+- Object.entries( object ); // returns an array from the property values
+
+• Example: [ [key1, value1], [key2, value2], ... ]
+
+• Example used in a loop: 
+   for(let [key, value] of Object.entries(person)) { console.log(key, value); }
+
+
+
+- ( Example (7) Object Constructor Functions ):
+
+- function Person(first, last, age, eye) {
+ this.firstName = first;
+ this.lastName = last;
+ this.age = age;
+ this.eyeColor = eye;
+} 
+// Values in this object depends on values passed in parameters, but you can create / assign it default values 
+
+- Using the function to create Objects   
+
+• const myFather = new Person("John", "Doe", 50, "blue");
+• const myMother = new Person("Sally", "Rally", 48, "green");
+• const mySister = new Person("Anna", "Rally", 18, "green");
+• const mySelf = new Person("Johnny", "Rally", 22, "green");
+
+- Adding a new method must be done to the constructor function prototype:
+
+• Person.prototype.changeName = function (name) { this.lastName = name; } // Method added to the constructor function
+
+• myMother.changeName("Doe"); // Filling the parameter of the method in the constructor function
